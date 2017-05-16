@@ -1,0 +1,20 @@
+package rules
+ 
+import com.javainuse.model.Pareja
+import com.javainuse.model.Emprendedor
+
+rule "#1"
+    when
+        $p: Pareja(empA.emprendedor == true && empB.inversionista == true)
+    then
+    	$p.incrementAfinidad(10);
+end
+
+rule "#2"
+    when
+        $p: Pareja(empA.raiting - empB.raiting < 3)
+    then
+    	$p.incrementAfinidad(10);
+end
+
+
